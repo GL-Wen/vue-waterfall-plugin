@@ -168,8 +168,12 @@ export default {
       })
     },
 
-    wrapperWidth() {
-      this.renderer();
+    wrapperWidth: {
+      immediate: true,
+      handler(v1, v2) {
+        if (v1 === v2) return;
+        this.renderer();
+      }
     },
 
     list: {
